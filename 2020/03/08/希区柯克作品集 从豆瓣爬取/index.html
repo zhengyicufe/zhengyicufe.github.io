@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="爬虫," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本来想简单做个列表，写完爬虫就懒得弄了 电影信息来源于这个网址： https:&#x2F;&#x2F;movie.douban.com&#x2F;celebrity&#x2F;1025185&#x2F;movies?start=0&amp;amp;format=pic&amp;amp;sortby=time&amp;amp;role=D">
+<meta name="keywords" content="爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="英国王朝与历任君主">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;08&#x2F;%E5%B8%8C%E5%8C%BA%E6%9F%AF%E5%85%8B%E4%BD%9C%E5%93%81%E9%9B%86%20%E4%BB%8E%E8%B1%86%E7%93%A3%E7%88%AC%E5%8F%96&#x2F;index.html">
+<meta property="og:site_name" content="Throchilius&#39;s Blog">
+<meta property="og:description" content="本来想简单做个列表，写完爬虫就懒得弄了 电影信息来源于这个网址： https:&#x2F;&#x2F;movie.douban.com&#x2F;celebrity&#x2F;1025185&#x2F;movies?start=0&amp;amp;format=pic&amp;amp;sortby=time&amp;amp;role=D">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-29T13:43:55.700Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/08/希区柯克作品集 从豆瓣爬取/"/>
+
+
+
+
+
+  <title>英国王朝与历任君主 | Throchilius's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Throchilius's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/08/%E5%B8%8C%E5%8C%BA%E6%9F%AF%E5%85%8B%E4%BD%9C%E5%93%81%E9%9B%86%20%E4%BB%8E%E8%B1%86%E7%93%A3%E7%88%AC%E5%8F%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zheng Yi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Throchilius's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">英国王朝与历任君主</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T21:02:06+08:00">
+                2020-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本来想简单做个列表，写完爬虫就懒得弄了</p>
+<p>电影信息来源于这个网址： <a href="https://movie.douban.com/celebrity/1025185/movies?start=0&amp;format=pic&amp;sortby=time&amp;role=D" target="_blank" rel="noopener">https://movie.douban.com/celebrity/1025185/movies?start=0&amp;format=pic&amp;sortby=time&amp;role=D</a> </p>
+<a id="more"></a>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> openpyxl</span><br><span class="line"></span><br><span class="line">row=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">crow</span><span class="params">(i)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> row</span><br><span class="line">    <span class="comment">#  构造第i页的网址</span></span><br><span class="line">    url=<span class="string">'https://movie.douban.com/celebrity/1025185/movies?start='</span>+str(<span class="number">10</span>*i)+<span class="string">'&amp;format=pic&amp;sortby=time&amp;role=D'</span></span><br><span class="line">    <span class="comment">#  发送请求，获得返回的html代码并保存在变量html中</span></span><br><span class="line">    headers = &#123;<span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'</span>&#125;</span><br><span class="line">    ret=request.Request(url,headers=headers)</span><br><span class="line">    html=request.urlopen(ret).read().decode(<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#将返回的字符串格式的html代码转换成xpath能处理的对象</span></span><br><span class="line">    html=etree.HTML(html)</span><br><span class="line">    <span class="comment">#print(html)</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#先定位到li标签，datas是一个包含10个li标签的list，就是包含10部电影信息的list</span></span><br><span class="line">    datas = html.xpath(<span class="string">'//div[@class="grid_view"]/ul/li'</span>)</span><br><span class="line">    <span class="comment">#print(datas)</span></span><br><span class="line">    a=<span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> datas:</span><br><span class="line">        <span class="comment">#string = etree.tostring(data).decode()  # 将data文档转化为二进制的字符串格式</span></span><br><span class="line">        <span class="comment">#print(string)</span></span><br><span class="line">        data_title=data.xpath(<span class="string">'dl/dd/h6/a/text()'</span>)<span class="comment">#电影标题</span></span><br><span class="line">        data_year=data.xpath(<span class="string">'dl/dd/h6/span[1]/text()'</span>)<span class="comment">#电影年份</span></span><br><span class="line">        data_job=data.xpath(<span class="string">'dl/dd/h6/span[2]/text()'</span>)<span class="comment">#希胖在拍摄时的工作</span></span><br><span class="line">        data_actinfo=data.xpath(<span class="string">'dl/dd/dl/dd[2]/text()'</span>)<span class="comment">#主演</span></span><br><span class="line">        data_score=data.xpath(<span class="string">'dl/dd/div[@class="star clearfix"]/span[2]/text()'</span>)<span class="comment">#评分</span></span><br><span class="line"></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        #保存电影信息到txt文件</span></span><br><span class="line"><span class="string">        with open('Alfred.txt','a',encoding='utf-8')as f:            </span></span><br><span class="line"><span class="string">            f.write("No: "+str(i*10+a+1)+'\n')</span></span><br><span class="line"><span class="string">            f.write(data_title[0]+'\n')</span></span><br><span class="line"><span class="string">            f.write(data_year[0]+'\n')</span></span><br><span class="line"><span class="string">            f.write(data_job[0]+'\n')</span></span><br><span class="line"><span class="string">            if data_actinfo:</span></span><br><span class="line"><span class="string">                f.write(data_actinfo[0]+'\n')</span></span><br><span class="line"><span class="string">            if data_score:</span></span><br><span class="line"><span class="string">                f.write(data_score[0]+'\n')</span></span><br><span class="line"><span class="string">            f.write('\n'*2)</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#保存进excel文件</span></span><br><span class="line">        f=openpyxl.load_workbook(<span class="string">"Alfred.xlsx"</span>)</span><br><span class="line">        worksheet=f.worksheets[<span class="number">0</span>]</span><br><span class="line">        worksheet.cell(row,<span class="number">1</span>,data_title[<span class="number">0</span>])</span><br><span class="line">        worksheet.cell(row,<span class="number">2</span>,data_year[<span class="number">0</span>])</span><br><span class="line">        worksheet.cell(row,<span class="number">3</span>,data_job[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">if</span> data_actinfo:<span class="comment">#有些没有这一项</span></span><br><span class="line">            worksheet.cell(row,<span class="number">4</span>,data_actinfo[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">if</span> data_score:</span><br><span class="line">            worksheet.cell(row,<span class="number">5</span>,data_score[<span class="number">0</span>])</span><br><span class="line">        f.save(filename=<span class="string">"Alfred.xlsx"</span>)</span><br><span class="line">        row+=<span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        a+=<span class="number">1</span></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">#主程序</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">9</span>):</span><br><span class="line">    print(i)</span><br><span class="line">    crow(i)</span><br></pre></td></tr></table></figure>
+
+<p>生成一个excel表格，按年份简单排序了一下，把结果po上来 </p>
+<p>总共85部，可能有错误的地方，不过这是豆瓣的问题！</p>
+<table>
+<thead>
+<tr>
+<th>影片名</th>
+<th>年份</th>
+<th>希胖的工作</th>
+<th>主演</th>
+<th>评分</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>13号</td>
+<td>(1922)</td>
+<td>[ 导演 ]</td>
+<td>Clare Greet / Ernest Thesiger</td>
+<td></td>
+</tr>
+<tr>
+<td>欢乐园</td>
+<td>(1925)</td>
+<td>[ 导演 ]</td>
+<td>Virginia Valli / 卡梅莉塔·杰拉蒂 Carmelita Geraghty / Miles Mander / Jo…</td>
+<td>6.6</td>
+</tr>
+<tr>
+<td>山鹰</td>
+<td>(1926)</td>
+<td>[ 导演 ]</td>
+<td>Nita Naldi / Malcolm Keen / John F. Hamilton</td>
+<td></td>
+</tr>
+<tr>
+<td>下坡路</td>
+<td>(1927)</td>
+<td>[ 导演 ]</td>
+<td>艾弗·诺韦洛 Ivor Novello / 罗宾·欧文 Robin Irvine / 诺曼·麦金内尔 Nor…</td>
+<td>6.3</td>
+</tr>
+<tr>
+<td>拳击场</td>
+<td>(1927)</td>
+<td>[ 导演 / 编剧 ]</td>
+<td>卡尔·布里松 Carl Brisson / 莉莉安·霍尔-戴维斯 Lillian Hall-Davis / 伊…</td>
+<td>6.6</td>
+</tr>
+<tr>
+<td>房客</td>
+<td>(1927)</td>
+<td>[ 演员 (饰 Extra in Newspaper Office) / 导演 / 编剧 ]</td>
+<td>艾弗·诺韦洛 Ivor Novello / 琼·特里普 June Tripp / 玛丽·奥尔特 Marie A…</td>
+<td>7.6</td>
+</tr>
+<tr>
+<td>香槟</td>
+<td>(1928)</td>
+<td>[ 导演 / 编剧 ]</td>
+<td>贝蒂·鲍尔弗 Betty Balfour / 让·布拉丹 Jean Bradin / 费迪南德·冯·阿尔…</td>
+<td>6.3</td>
+</tr>
+<tr>
+<td>水性杨花</td>
+<td>(1928)</td>
+<td>[ 导演 ]</td>
+<td>伊莎贝尔·琼斯 Isabel Jeans / 富兰克林·迪亚尔 Franklin Dyall / 伊恩·亨…</td>
+<td>7.3</td>
+</tr>
+<tr>
+<td>农家妇</td>
+<td>(1928)</td>
+<td>[ 导演 ]</td>
+<td>詹姆森·托马斯 Jameson Thomas / 莉莉安·霍尔-戴维斯 Lillian Hall-Davis /…</td>
+<td>6.4</td>
+</tr>
+<tr>
+<td>朱诺和孔雀</td>
+<td>(1929)</td>
+<td>[ 导演 / 编剧 ]</td>
+<td>巴里·菲茨杰拉德 Barry Fitzgerald / Maire O’Neill / Edward Chapman / Sid…</td>
+<td>5.8</td>
+</tr>
+<tr>
+<td>讹诈</td>
+<td>(1929)</td>
+<td>[ 导演 / 编剧 ]</td>
+<td>安妮·奥德拉 Anny Ondra / 萨拉·奥尔古德 Sara Allgood / Charles Paton / …</td>
+<td>7.5</td>
+</tr>
+<tr>
+<td>孟克斯人</td>
+<td>(1929)</td>
+<td>[ 导演 ]</td>
+<td>卡尔·布里松 Carl Brisson / 马尔科姆·基恩 Malcolm Keen / 安妮·奥德拉 A…</td>
+<td>6.9</td>
+</tr>
+<tr>
+<td>为敲诈而做的试音</td>
+<td>(1929)</td>
+<td>[ 演员 - 自己 / 导演 ]</td>
+<td>阿尔弗雷德·希区柯克 Alfred Hitchcock / 安妮·奥德拉 Anny Ondra</td>
+<td></td>
+</tr>
+<tr>
+<td>谋杀</td>
+<td>(1930)</td>
+<td>[ 演员 / 导演 / 编剧 ]</td>
+<td>Herbert Marshall / Norah Baring / Phyllis Konstam / Edward Chapman /  Mil…</td>
+<td>7.2</td>
+</tr>
+<tr>
+<td>爱尔斯特的呼声</td>
+<td>(1930)</td>
+<td>[ 导演 ]</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>奇怪的富翁</td>
+<td>(1931)</td>
+<td>[ 导演 / 编剧 ]</td>
+<td>Henry Kendall / Joan Barry / Percy Marmont / Betty Amann</td>
+<td>6.3</td>
+</tr>
+<tr>
+<td>玛丽</td>
+<td>(1931)</td>
+<td>[ 导演 ]</td>
+<td>Alfred Abel / Olga Tschechowa / Paul Graetz</td>
+<td></td>
+</tr>
+<tr>
+<td>面子游戏</td>
+<td>(1931)</td>
+<td>[ 导演 / 编剧 ]</td>
+<td>C.V. France / Helen Haye / Jill Esmond / Edmund Gwenn / John Longden</td>
+<td>6.1</td>
+</tr>
+<tr>
+<td>十七号</td>
+<td>(1932)</td>
+<td>[ 导演 ]</td>
+<td>Leon M. Lion / Anne Grey / 约翰·斯图尔特 John Stuart / Donald Calthrop …</td>
+<td>6.1</td>
+</tr>
+<tr>
+<td>擒凶记</td>
+<td>(1934)</td>
+<td>[ 导演 ]</td>
+<td>Leslie Banks / Edna Best / Peter Lorre / Pierre Fresnay</td>
+<td>6.9</td>
+</tr>
+<tr>
+<td>维也纳的华尔兹</td>
+<td>(1934)</td>
+<td>[ 导演 ]</td>
+<td>Esmond Knight / Jessie Matthews</td>
+<td>6.5</td>
+</tr>
+<tr>
+<td>三十九级台阶</td>
+<td>(1935)</td>
+<td>[ 演员 (饰 Passerby Near the Bus) / 导演 ]</td>
+<td>罗伯特·多纳特 Robert Donat / 玛德琳·卡洛 Madeleine Carroll / 露西·曼…</td>
+<td>7.8</td>
+</tr>
+<tr>
+<td>阴谋破坏</td>
+<td>(1936)</td>
+<td>[ 导演 ]</td>
+<td>Sylvia Sidney / Oskar Homolka / Desmond Tester / John Loder</td>
+<td>7.2</td>
+</tr>
+<tr>
+<td>间谍</td>
+<td>(1936)</td>
+<td>[ 导演 ]</td>
+<td>John Gielgud / Peter Lorre / Madeleine Carroll / Robert Young / Charles  …</td>
+<td>6.4</td>
+</tr>
+<tr>
+<td>年轻姑娘</td>
+<td>(1937)</td>
+<td>[ 演员 / 导演 ]</td>
+<td>Nova Pilbeam / Derrick De Marney / Percy Marmont / Edward Rigby</td>
+<td>6.8</td>
+</tr>
+<tr>
+<td>贵妇失踪记</td>
+<td>(1938)</td>
+<td>[ 演员 (饰 Man at Victoria Station) / 导演 ]</td>
+<td>玛格丽特·洛克伍德 Margaret Lockwood / 迈克尔·雷德格瑞夫 Michael Redgra…</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>牙买加旅店</td>
+<td>(1939)</td>
+<td>[ 导演 ]</td>
+<td>查尔斯·劳顿 Charles Laughton / Hay Petrie / Horace Hodges / Frederick P…</td>
+<td>6.6</td>
+</tr>
+<tr>
+<td>海外特派员</td>
+<td>(1940)</td>
+<td>[ 导演 ]</td>
+<td>Joel McCrea / Laraine Day / Herbert Marshall / George Sanders / Albert  B…</td>
+<td>7.1</td>
+</tr>
+<tr>
+<td>蝴蝶梦</td>
+<td>(1940)</td>
+<td>[ 演员 (饰 Man Outside Phone Booth) / 导演 ]</td>
+<td>劳伦斯·奥利弗 Laurence Olivier / 琼·芳登 Joan Fontaine / 乔治·桑德斯 …</td>
+<td>8.3</td>
+</tr>
+<tr>
+<td>深闺疑云</td>
+<td>(1941)</td>
+<td>[ 演员 (饰 Man Mailing Letter) / 导演 ]</td>
+<td>加里·格兰特 Cary Grant / 琼·芳登 Joan Fontaine / 塞德里克·哈德威克 Ce…</td>
+<td>7.5</td>
+</tr>
+<tr>
+<td>史密斯夫妇</td>
+<td>(1941)</td>
+<td>[ 演员 / 导演 ]</td>
+<td>卡洛·朗白 Carole Lombard / 罗伯特·蒙哥马利 Robert Montgomery</td>
+<td>7.0</td>
+</tr>
+<tr>
+<td>海角擒凶</td>
+<td>(1942)</td>
+<td>[ 导演 / 编剧 ]</td>
+<td>Priscilla Lane / Robert Cummings / Otto Kruger</td>
+<td>6.8</td>
+</tr>
+<tr>
+<td>辣手摧花</td>
+<td>(1943)</td>
+<td>[ 演员 (饰 Man on Train Playing Cards) / 导演 ]</td>
+<td>特雷莎·怀特 Teresa Wright / 约瑟夫·科顿 Joseph Cotten / 麦克唐纳·凯瑞…</td>
+<td>7.5</td>
+</tr>
+<tr>
+<td>怒海孤舟</td>
+<td>(1944)</td>
+<td>[ 导演 / 编剧 ]</td>
+<td>塔卢拉赫·班克黑德 Tallulah Bankhead / 威廉·本迪克斯 William Bendix / …</td>
+<td>7.8</td>
+</tr>
+<tr>
+<td>马达加斯加历险记</td>
+<td>(1944)</td>
+<td>[ 导演 ]</td>
+<td>Paul Bonifas / Paul Clarus / Jean Dattas</td>
+<td>5.6</td>
+</tr>
+<tr>
+<td>一路顺风</td>
+<td>(1944)</td>
+<td>[ 导演 ]</td>
+<td>John Blythe</td>
+<td>5.8</td>
+</tr>
+<tr>
+<td>爱德华大夫</td>
+<td>(1945)</td>
+<td>[ 演员 (饰 Man Leaving Elevator) / 导演 ]</td>
+<td>英格丽·褒曼 Ingrid Bergman / 格利高里·派克 Gregory Peck / 迈克尔·契诃…</td>
+<td>8.3</td>
+</tr>
+<tr>
+<td>Watchtower Over Tomorrow</td>
+<td>(1945)</td>
+<td>[ 导演 ]</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>美人计</td>
+<td>(1946)</td>
+<td>[ 演员 (饰 Man Drinking Champagne at Party) / 导演 / 编剧 - Screenplay  Contributor ]</td>
+<td>加里·格兰特 Cary Grant / 英格丽·褒曼 Ingrid Bergman / 克劳德·雷恩斯 C…</td>
+<td>7.8</td>
+</tr>
+<tr>
+<td>凄艳断肠花</td>
+<td>(1947)</td>
+<td>[ 演员 / 导演 ]</td>
+<td>格利高里·派克 Gregory Peck / 安·托德 Ann Todd / 查尔斯·劳顿 Charles L…</td>
+<td>6.5</td>
+</tr>
+<tr>
+<td>夺魂索</td>
+<td>(1948)</td>
+<td>[ 导演 ]</td>
+<td>约翰·道尔 John Dall / 法利·格兰杰 Farley Granger / 詹姆斯·斯图尔特 Ja…</td>
+<td>8.1</td>
+</tr>
+<tr>
+<td>风流夜合花</td>
+<td>(1949)</td>
+<td>[ 演员 / 导演 / 制片人 ]</td>
+<td>Ingrid Bergman / Michael Wilding / Margaret Leighton / Joseph Cotten</td>
+<td>6.5</td>
+</tr>
+<tr>
+<td>欲海惊魂</td>
+<td>(1950)</td>
+<td>[ 演员 / 导演 ]</td>
+<td>简·怀曼 Jane Wyman / 玛琳·黛德丽 Marlene Dietrich / 迈克·怀尔登 Micha…</td>
+<td>7.7</td>
+</tr>
+<tr>
+<td>火车怪客</td>
+<td>(1951)</td>
+<td>[ 演员 (饰 Man Boarding Train Carrying a Double Bass) / 导演 ]</td>
+<td>法利·格兰杰 Farley Granger / 罗伯特·沃克 Robert Walker / 露丝·罗曼 Ru…</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>忏情记</td>
+<td>(1953)</td>
+<td>[ 演员 / 导演 / 制片人 ]</td>
+<td>蒙哥马利·克利夫特 Montgomery Clift / 安妮·巴克斯特 Anne Baxter / 卡尔…</td>
+<td>7.8</td>
+</tr>
+<tr>
+<td>后窗</td>
+<td>(1954)</td>
+<td>[ 演员 (饰 Songwriter’s Clock-Winder) / 导演 / 制片人 ]</td>
+<td>詹姆斯·斯图尔特 James Stewart / 格蕾丝·凯利 Grace Kelly / 温戴尔·柯瑞…</td>
+<td>8.6</td>
+</tr>
+<tr>
+<td>电话谋杀案</td>
+<td>(1954)</td>
+<td>[ 演员 / 导演 / 制片人 ]</td>
+<td>雷·米兰德 Ray Milland / 格蕾丝·凯利 Grace Kelly / 罗伯特·卡明斯 Rober…</td>
+<td>8.8</td>
+</tr>
+<tr>
+<td>佩勒姆先生的案件</td>
+<td>(1955)</td>
+<td>[ 演员 / 导演 ]</td>
+<td>阿尔弗雷德·希区柯克 Alfred Hitchcock / 汤姆·伊威尔 Tom Ewell / Raymond…</td>
+<td>7.4</td>
+</tr>
+<tr>
+<td>崩溃</td>
+<td>(1955)</td>
+<td>[ 演员 / 导演 ]</td>
+<td>阿尔弗雷德·希区柯克 Alfred Hitchcock / 约瑟夫·科顿 Joseph Cotten / Ray…</td>
+<td>8.2</td>
+</tr>
+<tr>
+<td>怪尸案</td>
+<td>(1955)</td>
+<td>[ 演员 (饰 Man Walking Past Sam’s Outdoor Exhibition) / 导演 / 制片人 ]</td>
+<td>埃德蒙·戈温 Edmund Gwenn / 约翰·福赛思 John Forsythe / 米尔翠德·纳特…</td>
+<td>7.4</td>
+</tr>
+<tr>
+<td>希区柯克剧场   第一季</td>
+<td>(1955)</td>
+<td>[ 演员 - 自己 / 导演 ]</td>
+<td>约瑟夫·科顿 Joseph Cotten / 阿尔弗雷德·希区柯克 Alfred Hitchcock / Ray…</td>
+<td>9.1</td>
+</tr>
+<tr>
+<td>复仇</td>
+<td>(1955)</td>
+<td>[ 演员 / 导演 ]</td>
+<td>阿尔弗雷德·希区柯克 Alfred Hitchcock / 拉尔夫·米克 Ralph Meeker / 维拉…</td>
+<td>7.1</td>
+</tr>
+<tr>
+<td>捉贼记</td>
+<td>(1955)</td>
+<td>[ 演员 (饰 Man Sitting Next to John Robie on Bus) / 导演 ]</td>
+<td>加里·格兰特 Cary Grant / 格蕾丝·凯利 Grace Kelly / 洁茜·罗伊丝·兰迪…</td>
+<td>7.2</td>
+</tr>
+<tr>
+<td>伸冤记</td>
+<td>(1956)</td>
+<td>[ 演员 / 导演 / 制片人 ]</td>
+<td>Henry Fonda / Vera Miles / Anthony Quayle</td>
+<td>7.5</td>
+</tr>
+<tr>
+<td>布兰查德先生的秘密</td>
+<td>(1956)</td>
+<td>[ 演员 / 导演 ]</td>
+<td>阿尔弗雷德·希区柯克 Alfred Hitchcock / Robert Horton</td>
+<td></td>
+</tr>
+<tr>
+<td>希区柯克剧场 第二季</td>
+<td>(1956)</td>
+<td>[ 演员 - 自己 / 导演 / 编剧 ]</td>
+<td>Steve Brodie / David Wayne / 阿尔弗雷德·希区柯克 Alfred Hitchcock</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>擒凶记</td>
+<td>(1956)</td>
+<td>[ 演员 / 导演 / 制片人 ]</td>
+<td>詹姆斯·斯图尔特 James Stewart / 多丽丝·黛 Doris Day / 布伦达·德·班泽…</td>
+<td>7.6</td>
+</tr>
+<tr>
+<td>Alfred Hitchcock Presents:Wet Saturday</td>
+<td>(1956)</td>
+<td>[ 导演 ]</td>
+<td>Cedric Hardwicke, / John Williams</td>
+<td></td>
+</tr>
+<tr>
+<td>希区柯克剧场 第三季</td>
+<td>(1957)</td>
+<td>[ 演员 - 自己 / 导演 / 编剧 ]</td>
+<td>Vincent Price / James Gregory / Alfred Hitchcock</td>
+<td>9.2</td>
+</tr>
+<tr>
+<td>怀疑</td>
+<td>(1957)</td>
+<td>[ 导演 / 制片人 ]</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>四点钟 第一季</td>
+<td>(1957)</td>
+<td>[ 导演 ]</td>
+<td>南茜·凯利 Nancy Kelly / E.G.马绍尔 E.G.  Marshall / 理查德·朗 Richard L…</td>
+<td></td>
+</tr>
+<tr>
+<td>最后一英里</td>
+<td>(1957)</td>
+<td>[ 演员 / 导演 ]</td>
+<td>阿尔弗雷德·希区柯克 Alfred Hitchcock / David Wayne</td>
+<td></td>
+</tr>
+<tr>
+<td>希区柯克剧场 第四季</td>
+<td>(1958)</td>
+<td>[ 演员 - 自己 / 导演 / 编剧 ]</td>
+<td>Alfred Hitchcock</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>赌门深似海</td>
+<td>(1958)</td>
+<td>[ 演员 / 导演 ]</td>
+<td>阿尔弗雷德·希区柯克 Alfred Hitchcock / 基南·怀恩  Keenan Wynn / 菲伊·…</td>
+<td></td>
+</tr>
+<tr>
+<td>迷魂记</td>
+<td>(1958)</td>
+<td>[ 演员 (饰 Man Walking Past Elster’s Office) / 导演 ]</td>
+<td>詹姆斯·斯图尔特 James Stewart / 金·诺瓦克 Kim Novak / 芭芭拉·贝尔·戈…</td>
+<td>8.6</td>
+</tr>
+<tr>
+<td>Alfred Hitchcock Presents: The Crystal  Trench</td>
+<td>(1959)</td>
+<td>[ 演员 / 导演 ]</td>
+<td>阿尔弗雷德·希区柯克 Alfred Hitchcock / 詹姆斯·唐纳德 James Donald</td>
+<td></td>
+</tr>
+<tr>
+<td>希区柯克剧场 第五季</td>
+<td>(1959)</td>
+<td>[ 演员 / 导演 / 编剧 ]</td>
+<td>阿尔弗雷德·希区柯克 Alfred Hitchcock</td>
+<td>9.1</td>
+</tr>
+<tr>
+<td>西北偏北</td>
+<td>(1959)</td>
+<td>[ 导演 ]</td>
+<td>加里·格兰特 Cary Grant / 爱娃·玛丽·森特 Eva Marie Saint / 詹姆斯·梅…</td>
+<td>8.2</td>
+</tr>
+<tr>
+<td>请君入瓮</td>
+<td>(1959)</td>
+<td>[ 演员 / 导演 ]</td>
+<td>阿尔弗雷德·希区柯克 Alfred Hitchcock / 约翰·威廉姆斯 John Williams</td>
+<td></td>
+</tr>
+<tr>
+<td>Startime</td>
+<td>(1959)</td>
+<td>[ 导演 ]</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>希区柯克剧场 第六季</td>
+<td>(1960)</td>
+<td>[ 演员 / 导演 ]</td>
+<td>阿尔弗雷德·希区柯克 Alfred Hitchcock / Audrey Meadows</td>
+<td>9.1</td>
+</tr>
+<tr>
+<td>惊魂记</td>
+<td>(1960)</td>
+<td>[ 演员 (饰 Man Outside Real Estate Office) / 导演 ]</td>
+<td>安东尼·博金斯 Anthony Perkins / 维拉·迈尔斯 Vera Miles / 约翰·加文 Jo…</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>街角事件</td>
+<td>(1960)</td>
+<td>[ 导演 ]</td>
+<td>杰克·艾伯森 Jack Albertson / Alice Backes / Leslie Barrett / Barbara Be…</td>
+<td></td>
+</tr>
+<tr>
+<td>希区柯克剧场 第七季</td>
+<td>(1961)</td>
+<td>[ 演员 / 导演 ]</td>
+<td>阿尔弗雷德·希区柯克 Alfred Hitchcock / Paul Ford</td>
+<td></td>
+</tr>
+<tr>
+<td>希区柯克长篇故事集 第一季</td>
+<td>(1962)</td>
+<td>[ 演员 / 导演 / 制片人 / 编剧 ]</td>
+<td>阿尔弗雷德·希区柯克 Alfred Hitchcock</td>
+<td>9.3</td>
+</tr>
+<tr>
+<td>群鸟</td>
+<td>(1963)</td>
+<td>[ 演员 (饰 Man Walking Dogs Out of Pet Shop) / 导演 / 制片人 ]</td>
+<td>罗德·泰勒 Rod Taylor / 杰西卡·坦迪 Jessica Tandy / 苏珊娜·普莱舍特 Su…</td>
+<td>8.2</td>
+</tr>
+<tr>
+<td>艳贼</td>
+<td>(1964)</td>
+<td>[ 演员 (饰 Man Leaving Hotel Room) / 导演 ]</td>
+<td>蒂比·海德莉 Tippi Hedren / 马丁·加贝尔 Martin Gabel / 肖恩·康纳利 Sea…</td>
+<td>7.4</td>
+</tr>
+<tr>
+<td>冲破铁幕</td>
+<td>(1966)</td>
+<td>[ 演员 / 导演 / 制片人 ]</td>
+<td>Paul Newman / Julie Andrews / Lila Kedrova / Hansjörg Felmy</td>
+<td>6.8</td>
+</tr>
+<tr>
+<td>万花筒</td>
+<td>(1966)</td>
+<td>[ 导演 ]</td>
+<td>戴维·海明斯 David Hemmings</td>
+<td></td>
+</tr>
+<tr>
+<td>万花筒</td>
+<td>(1967)</td>
+<td>[ 导演 ]</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>谍魂</td>
+<td>(1969)</td>
+<td>[ 导演 ]</td>
+<td>Frederick Stafford / Dany Robin / Karin Dor / John Vernon / Michel  Picco…</td>
+<td>6.5</td>
+</tr>
+<tr>
+<td>狂凶记</td>
+<td>(1972)</td>
+<td>[ 演员 (饰 Spectator at Opening Rally) / 导演 ]</td>
+<td>乔·芬奇 Jon Finch / 巴里·福斯特 Barry Foster / 芭芭拉·雷吉-亨特 Barba…</td>
+<td>7.9</td>
+</tr>
+<tr>
+<td>大巧局</td>
+<td>(1976)</td>
+<td>[ 演员 / 导演 / 制片人 ]</td>
+<td>Karen Black / Bruce Dern / Barbara Harris / William Devane</td>
+<td>7.1</td>
+</tr>
+<tr>
+<td>集中营的记忆</td>
+<td>(1985)</td>
+<td>[ 导演 / 编剧 ]</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>集中营记忆</td>
+<td>(2014)</td>
+<td>[ 演员 - 自己 / 导演 / 编剧 ]</td>
+<td>阿道夫·希特勒 Adolf Hitler / Jasper Britton / Sidney Bernstein / 阿尔弗…</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>害，其实本来是想做一个希区柯克电影生涯研究的</p>
+<p>有时间再做吧~</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%88%AC%E8%99%AB/" rel="tag"># 爬虫</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/08/%E8%8B%B1%E5%9B%BD%E7%8E%8B%E6%9C%9D%E4%B8%8E%E5%8E%86%E4%BB%BB%E5%90%9B%E4%B8%BB/" rel="next" title="英国王朝与历任君主">
+                <i class="fa fa-chevron-left"></i> 英国王朝与历任君主
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/09/%E8%8B%B1%E5%9B%BD%E5%8E%86%E5%8F%B2%E5%A4%A7%E4%BA%8B%E8%AE%B0/" rel="prev" title="英国历史大事记">
+                英国历史大事记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zheng Yi</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zheng Yi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
